@@ -5,7 +5,7 @@
   <div class="card-header">Contactus Page</div>
   <div class="card-body">
 
-      <form action="{{ url('news/' .$news->id) }}" method="post">
+      <form action="{{ url('admin/news/' .$news->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$news->id}}" id="id" />

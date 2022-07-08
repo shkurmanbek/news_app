@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $input = $request->all();
         News::create($input);
-        return redirect('admin')->with('flash_message', 'News Addedd!');
+        return redirect('/admin')->with('flash_message', 'News Addedd!');
     }
 
     public function show($id)
@@ -46,12 +46,12 @@ class AdminController extends Controller
         $home = News::find($id);
         $input = $request->all();
         $home->update($input);
-        return redirect('admin')->with('flash_message', 'home Updated!');
+        return redirect('/admin')->with('flash_message', 'home Updated!');
     }
 
     public function destroy($id)
     {
         News::destroy($id);
-        return redirect('admin')->with('flash_message', 'News deleted!');
+        return redirect('/admin')->with('flash_message', 'News deleted!');
     }
 }

@@ -4,7 +4,7 @@
 <div class="card">
   <div class="card-header">Add new News</div>
   <div class="card-body">
-      <form action="{{ url('news') }}" method="post">
+      <form action="{{ url('admin/news') }}" method="post">
         {!! csrf_field() !!}
         <label>Title</label></br>
         <input type="text" name="title" id="title" class="form-control"></br>

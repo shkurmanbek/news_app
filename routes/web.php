@@ -13,18 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
-
-
-Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
+    Route::get('/', 'App\Http\Controllers\AdminController@index')->name('admin');
     Route::resource("/news", App\Http\Controllers\AdminController::class);
     Route::resource("/users", App\Http\Controllers\AdminUserController::class);
 });
 
 Auth::routes();
 
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin');
+//
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
