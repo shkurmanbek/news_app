@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::paginate(1);
         return view ('home')->with('news', $news);
     }
 }

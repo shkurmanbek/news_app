@@ -1,5 +1,20 @@
 @extends('layouts.app')
 @section('content')
+<!-- <style>
+    div.imgborder
+{
+    width:450px;
+    height:150px;
+}
+
+img.imgborder {
+    background-color: black;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+</style> -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -21,7 +36,7 @@
                         <div class="bg-light p-5 rounded">
 
                             <h1>{{ $item->title }}</h1>
-                            <img src="{{ $item->img }}" alt="Image" width="650px">
+                            <div class="imgborder"><img class="imgborder" src="{{ $item->img }}" alt="Image"></div>
                             <p class="lead">{{ $item->subtitle }}</p>
                             <!-- <a class="btn btn-lg btn-primary" href="../components/navbar/" role="button">View navbar docs &raquo;</a>
                             <a class="btn btn-lg btn-primary" href="../components/navbar/" role="button">View navbar docs &raquo;</a>
@@ -37,6 +52,9 @@
                         <hr>
                     <!-- </div> -->
                     @endforeach
+                    <div>
+                        {{$news->links()}}
+                    </div>
                 </div>
             </div>
         </div>
