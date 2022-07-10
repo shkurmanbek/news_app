@@ -30,6 +30,7 @@ img.imgborder {
                         </div>
                     @endif
                     {{ $item->title }}
+                <a href="{{ url('/news/' . $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i>Толығырақ</button></a>
                     </div>
                                     <!-- {{ $loop->iteration }} -->
                     <!-- <div class="card-body"> -->
