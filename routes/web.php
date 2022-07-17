@@ -13,15 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+//
+
+
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function(){
     Route::get('/', 'App\Http\Controllers\AdminController@index')->name('admin');
     Route::resource("/news", App\Http\Controllers\AdminController::class);
     Route::resource("/users", App\Http\Controllers\AdminUserController::class);
 });
 
-Auth::routes();
-
-//
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('role')->default('0');
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->string('comment');
+            $table->foreignId('news_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table-dropColumn('role');
-        });
+        Schema::dropIfExists('comments');
     }
 };
